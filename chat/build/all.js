@@ -34,8 +34,9 @@ function onSubmitForm(e) {
   e.preventDefault();
 }
 
-function onIncomingChat(message) {
+function onIncomingChat(utfcode) {
   console.log('chat inbound.');
+  message = UnUnicode(utfcode)
   history.innerHTML += time() + ': ' + message + '<br/>';
   // Scroll history to the bottom.
   wrap.scrollTop = history.scrollHeight;
