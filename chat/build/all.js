@@ -5,9 +5,9 @@ var SonicCoder = require('../lib/sonic-coder.js');
 
 var ALPHABET = '\n abcdefu0123456789\\';
 // Create an ultranet server.
-var sonicServer = new SonicServer({alphabet: ALPHABET, debug: true, freqMin: 18000, freqMax: 19000});
+var sonicServer = new SonicServer({alphabet: ALPHABET, debug: true, freqMin: 10000, freqMax: 12000});
 // Create an ultranet socket.
-var sonicSocket = new SonicSocket({alphabet: ALPHABET, freqMin: 18000, freqMax: 19000});
+var sonicSocket = new SonicSocket({alphabet: ALPHABET, freqMin: 10000, freqMax: 12000});
 
 
 var history = document.querySelector('#history');
@@ -47,7 +47,7 @@ function ToUnicode(str){
 }
 
 function UnUnicode(str){
-	return escape(str).replace(/%/g,"\\").toLowerCase();
+	return unescape(str.replace(/\\/g, "%"));
 }
 
 function time() {
